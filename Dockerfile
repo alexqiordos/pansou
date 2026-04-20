@@ -47,8 +47,7 @@ COPY --from=builder /app/pansou /app/pansou
 # 设置工作目录
 WORKDIR /app
 
-# 暴露端口
-EXPOSE 8888
+
 
 # 设置环境变量
 # ENABLED_PLUGINS: 必须指定启用的插件，多个插件用逗号分隔
