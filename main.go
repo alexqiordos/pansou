@@ -182,8 +182,11 @@ func startServer() {
 	// 设置路由
 	router := api.SetupRouter(searchService)
 
-	// 获取端口配置
-	port := config.AppConfig.Port
+	// 获取端口配置：优先读取 Railway 环境变量，兼容本地运行
+port := os.Getenv("PORT")
+if port == "" {
+    port = config.AppConfig.Port
+}
 
 	// 输出服务信息
 	printServiceInfo(port, pluginManager)
